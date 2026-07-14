@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduData AI</title>
+
+    <link rel="stylesheet" href="estilos.css">
+</head>
+
+<body>
+
+    <div class="contenedor">
+
+        <h1>📊 EduData AI</h1>
+
+        <h2>Sistema Inteligente de Alerta Temprana</h2>
+
+        <p>
+            Analiza automáticamente la información de los estudiantes
+            para detectar riesgo académico y recomendar acciones de mejora.
+        </p>
+
+        <div class="datosInforme">
+            <div>
+                <label>🏫 Nombre del colegio</label><br>
+                <input
+                type="text"
+                id="nombreColegio"
+                placeholder="Ejemplo: I.E. José María Arguedas"
+                >
+            </div>
+            <div>
+                <label>👨‍🏫 Docente</label><br>
+                <input
+                type="text"
+                id="nombreDocente"
+                placeholder="Nombre del docente"
+                >
+            </div>
+        </div>
+
+        <input type="file" id="archivoExcel">
+
+        <br><br>
+
+        <button id="btnAnalizar">
+            Analizar Datos
+        </button>
+
+        <div class="dashboard">
+
+            <div class="tarjeta">
+                <h3>Total</h3>
+                <p id="totalEstudiantes">0</p>
+            </div>
+
+            <div class="tarjeta alto">
+                <h3>Riesgo Alto</h3>
+                <p id="riesgoAlto">0</p>
+            </div>
+
+            <div class="tarjeta medio">
+                <h3>Riesgo Medio</h3>
+                <p id="riesgoMedio">0</p>
+            </div>
+
+            <div class="tarjeta bajo">
+                <h3>Riesgo Bajo</h3>
+                <p id="riesgoBajo">0</p>
+            </div>
+
+        </div>
+
+        <div class="grafico">
+            <canvas id="graficoRiesgo"></canvas>
+        </div>
+
+        <div class="grafico">
+            <canvas id="graficoIndicadores"></canvas>
+        </div>
+
+        <div class="busqueda">
+            <label for="buscar">
+                🔍 Buscar estudiante:
+            </label>
+            <input
+                type="text"
+                id="buscar"
+                placeholder="Escriba un nombre..."
+            >
+        </div>
+
+        <div class="filtros">
+            <button id="todos">Todos</button>
+            <button id="alto">🔴 Riesgo Alto</button>
+            <button id="medio">🟡 Riesgo Medio</button>
+            <button id="bajo">🟢 Riesgo Bajo</button>
+        </div>
+
+        <div class="analisisGeneral">
+
+            <h2>📊 Resumen del análisis</h2>
+
+            <div id="resumenAnalisis">
+
+                Esperando datos...
+
+            </div>
+        </div>
+
+        <div class="ranking">
+            <h2>🏆 Estudiantes que requieren atención inmediata</h2>
+            <div id="rankingEstudiantes">
+                Esperando datos...
+            </div>
+        </div>
+
+        <div class="asistente">
+             <h2>🤖 Asistente Inteligente para Docentes</h2>
+             <button id="analizarIA">
+                Analizar datos
+             </button>
+             <div id="resultadoIA">
+                Presione el botón para generar el análisis.
+             </div>
+        </div>
+
+        <div class="exportar">
+            <button id="exportarPDF">
+                📄 Exportar Informe PDF
+            </button>
+        </div>
+
+        <div id="resultado">
+            <table id="tablaEstudiantes">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Asistencia</th>
+                        <th>Promedio</th>
+                        <th>Participación</th>
+                        <th>Conducta</th>
+                        <th>Tareas</th>
+                        <th>Riesgo</th>
+                        <th>Motivo</th>
+                        <th>Recomendación</th>
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                </tbody>
+
+            </table>
+
+            <div id="detalleEstudiante" class="detalle">
+
+                <h2>Seleccione un estudiante</h2>
+
+                <p>Haga clic en una fila de la tabla para ver la información.</p>
+
+            </div>
+
+        </div>
+
+<script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="dashboard.js"></script>
+<script src="recomendaciones.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="script.js"></script>
+
+</body>
+
+</html>
